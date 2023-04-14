@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import Grid from './components/Grid';
+import Controls from './components/Controls';
 
 function App() {
   const [grid, setGrid] = useState([]);
@@ -39,6 +40,7 @@ function App() {
 
   return (
     <main>
+      <Controls />
       <Grid grid={grid} handleMouseOverNode={handleMouseOverNode} />
     </main>
   );
