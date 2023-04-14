@@ -9,12 +9,20 @@ function App() {
   const [grid, setGrid] = useState([]);
   const [sourcePlaced, setSourcePlaced] = useState(false);
   const [targetPlaced, setTargetPlaced] = useState(false);
+  const [algorithm, setAlgorithm] = useState('A*');
 
   useEffect(() => {
     setupGrid();
   }, []);
 
-  const handlePlay = () => {};
+  const aStar = () => {};
+
+  const handlePlay = () => {
+    switch (algorithm) {
+      case 'A*':
+        aStar();
+    }
+  };
 
   const handleClear = () => {
     setupGrid();
@@ -33,6 +41,10 @@ function App() {
       } else {
         tempGrid[row][col] = 'O';
       }
+    } else {
+      if (nodeContent == 'S') setSourcePlaced(false);
+      if (nodeContent == 'T') setTargetPlaced(false);
+      tempGrid[row][col] = '';
     }
     setGrid(tempGrid.slice().slice());
   };

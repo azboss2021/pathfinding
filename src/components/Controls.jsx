@@ -2,7 +2,7 @@ import { FaTrash, FaPlay } from 'react-icons/fa';
 
 const Controls = ({ handlePlay, handleClear }) => {
   return (
-    <section className="absolute top-0 left-0 flex gap-3 bg-white border-2 border-gray-600 border-t-0 p-3">
+    <section className="fixed top-0 left-0 flex gap-3 bg-white border-2 border-gray-600 border-t-0 p-3">
       <button
         className="w-15 aspect-square p-3 text-white bg-blue-400 text-xl rounded-md control-button"
         onClick={handlePlay}
