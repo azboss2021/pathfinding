@@ -3,12 +3,24 @@ import Grid from './components/Grid';
 
 function App() {
   const [grid, setGrid] = useState([]);
+  const [sourcePlaced, setSourcePlaced] = useState(false);
+  const [targetPlaced, setTargetPlaced] = useState(false);
+
   const ROWS = 35;
-  const COLS = 60;
+  const COLS = 50;
 
   useEffect(() => {
     setupGrid();
   }, []);
+
+  const handleMouseOverNode = (e, row, col, nodeContent) => {
+    let tempGrid = grid.slice().slice();
+    if (!sourcePlaced) {
+      console.log('Row: ' + row + ' Col: ' + col);
+      tempGrid[row][col] = 'S';
+    }
+    setGrid(tempGrid.slice().slice());
+  };
 
   const setupGrid = () => {
     let tempGrid = new Array(ROWS);
@@ -27,7 +39,7 @@ function App() {
 
   return (
     <main>
-      <Grid grid={grid} />
+      <Grid grid={grid} handleMouseOverNode={handleMouseOverNode} />
     </main>
   );
 }

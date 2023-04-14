@@ -7,3 +7,11 @@
   margin: 0;
   padding: 0;
 }
+
+.node {
+  transition: all 0.1s ease-in-out;
+}
+
+.node:hover {
+  transform: scale(1.2);
+}

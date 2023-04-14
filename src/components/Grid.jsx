@@ -1,36 +1,48 @@
 import React from 'react';
 
-const Grid = ({ grid }) => {
-  const gridMap = grid.map((row, index) => {
+const Grid = ({ grid, handleMouseOverNode }) => {
+  const gridMap = grid.map((row, rowIndex) => {
     return (
-      <div key={index} className="flex">
-        {row.map((node, index) => {
+      <div key={rowIndex} className="flex">
+        {row.map((node, nodeIndex) => {
           if (node == 'O') {
             return (
               <div
-                key={index}
-                className="flex-1 aspect-square border border-gray-200 bg-black"
+                key={nodeIndex}
+                className="flex-1 aspect-square border border-gray-300 bg-black node"
+                onClick={(e) =>
+                  handleMouseOverNode(e, rowIndex, nodeIndex, node)
+                }
               ></div>
             );
           } else if (node == 'S') {
             return (
               <div
-                key={index}
-                className="flex-1 aspect-square border border-gray-200 bg-green-500"
+                key={nodeIndex}
+                className="flex-1 aspect-square border border-gray-300 bg-green-500 node"
+                onClick={(e) =>
+                  handleMouseOverNode(e, rowIndex, nodeIndex, node)
+                }
               ></div>
             );
           } else if (node == 'T') {
             return (
               <div
-                key={index}
-                className="flex-1 aspect-square border border-gray-200 bg-red-500"
+                key={nodeIndex}
+                className="flex-1 aspect-square border border-gray-300 bg-red-500 node"
+                onClick={(e) =>
+                  handleMouseOverNode(e, rowIndex, nodeIndex, node)
+                }
               ></div>
             );
           } else {
             return (
               <div
-                key={index}
-                className="flex-1 aspect-square border border-gray-200"
+                key={nodeIndex}
+                className="flex-1 aspect-square border border-gray-300 bg-white node"
+                onClick={(e) =>
+                  handleMouseOverNode(e, rowIndex, nodeIndex, node)
+                }
               ></div>
             );
           }
