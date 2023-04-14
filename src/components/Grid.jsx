@@ -9,7 +9,7 @@ const Grid = ({ grid, handleMouseOverNode }) => {
             return (
               <div
                 key={nodeIndex}
-                className="flex-1 aspect-square border border-gray-200 bg-black node"
+                className="flex-1 aspect-square border border-gray-100 bg-black node"
                 onClick={(e) =>
                   handleMouseOverNode(e, rowIndex, nodeIndex, node)
                 }
@@ -19,7 +19,7 @@ const Grid = ({ grid, handleMouseOverNode }) => {
             return (
               <div
                 key={nodeIndex}
-                className="flex-1 aspect-square border border-gray-200 bg-green-500 node"
+                className="flex-1 aspect-square border border-gray-100 bg-green-500 node"
                 onClick={(e) =>
                   handleMouseOverNode(e, rowIndex, nodeIndex, node)
                 }
@@ -29,7 +29,7 @@ const Grid = ({ grid, handleMouseOverNode }) => {
             return (
               <div
                 key={nodeIndex}
-                className="flex-1 aspect-square border border-gray-200 bg-red-500 node"
+                className="flex-1 aspect-square border border-gray-100 bg-red-500 node"
                 onClick={(e) =>
                   handleMouseOverNode(e, rowIndex, nodeIndex, node)
                 }
@@ -39,7 +39,7 @@ const Grid = ({ grid, handleMouseOverNode }) => {
             return (
               <div
                 key={nodeIndex}
-                className="flex-1 aspect-square border border-gray-200 bg-white node"
+                className="flex-1 aspect-square border border-gray-100 bg-white node"
                 onClick={(e) =>
                   handleMouseOverNode(e, rowIndex, nodeIndex, node)
                 }

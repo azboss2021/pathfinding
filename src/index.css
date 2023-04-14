@@ -9,12 +9,12 @@
 }
 
 .node {
-  transition: all 0.1s ease-in-out;
+  transition: all 0.05s ease-in-out;
 }
 
 .node:hover {
-  transform: scale(1.2);
-  outline: 2px solid gray;
+  transform: scale(1.05);
+  outline: 1px solid black;
 }
 
 .control-button {

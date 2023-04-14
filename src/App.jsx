@@ -22,9 +22,17 @@ function App() {
 
   const handleMouseOverNode = (e, row, col, nodeContent) => {
     let tempGrid = grid.slice().slice();
-    if (!sourcePlaced) {
-      console.log('Row: ' + row + ' Col: ' + col);
-      tempGrid[row][col] = 'S';
+    if (!nodeContent) {
+      if (!sourcePlaced) {
+        console.log('Row: ' + row + ' Col: ' + col);
+        tempGrid[row][col] = 'S';
+        setSourcePlaced(true);
+      } else if (!targetPlaced) {
+        tempGrid[row][col] = 'T';
+        setTargetPlaced(true);
+      } else {
+        tempGrid[row][col] = 'O';
+      }
     }
     setGrid(tempGrid.slice().slice());
   };
@@ -40,6 +48,9 @@ function App() {
         tempGrid[i][j] = '';
       }
     }
+
+    setSourcePlaced(false);
+    setTargetPlaced(false);
 
     setGrid(tempGrid.slice().slice());
   };
