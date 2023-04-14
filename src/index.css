@@ -14,4 +14,13 @@
 
 .node:hover {
   transform: scale(1.2);
+  outline: 2px solid gray;
+}
+
+.control-button {
+  transition: all 0.1s ease-in-out;
+}
+
+.control-button:hover {
+  transform: scale(1.05);
 }

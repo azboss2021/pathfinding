@@ -2,17 +2,23 @@ import { useEffect, useState } from 'react';
 import Grid from './components/Grid';
 import Controls from './components/Controls';
 
+const ROWS = 35;
+const COLS = 50;
+
 function App() {
   const [grid, setGrid] = useState([]);
   const [sourcePlaced, setSourcePlaced] = useState(false);
   const [targetPlaced, setTargetPlaced] = useState(false);
 
-  const ROWS = 35;
-  const COLS = 50;
-
   useEffect(() => {
     setupGrid();
   }, []);
+
+  const handlePlay = () => {};
+
+  const handleClear = () => {
+    setupGrid();
+  };
 
   const handleMouseOverNode = (e, row, col, nodeContent) => {
     let tempGrid = grid.slice().slice();
@@ -31,7 +37,7 @@ function App() {
 
     for (let i = 0; i < ROWS; i++) {
       for (let j = 0; j < COLS; j++) {
-        tempGrid[i][j] = 'N';
+        tempGrid[i][j] = '';
       }
     }
 
@@ -40,7 +46,7 @@ function App() {
 
   return (
     <main>
-      <Controls />
+      <Controls handlePlay={handlePlay} handleClear={handleClear} />
       <Grid grid={grid} handleMouseOverNode={handleMouseOverNode} />
     </main>
   );
