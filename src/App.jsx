@@ -10,6 +10,8 @@ export const UserContext = createContext();
 function App() {
   const [grid, setGrid] = useState([]);
   const [mouseDown, setMouseDown] = useState(false);
+  const [sourcePlaced, setSourcePlaced] = useState(false);
+  const [targetPlaced, setTargetPlaced] = useState(false);
 
   useEffect(() => {
     resetGrid();
@@ -28,11 +30,25 @@ function App() {
   };
 
   const handleMouseDown = (node, row, col) => {
+    const tempGrid = grid;
     setMouseDown(true);
-    console.log('Handle mouse down');
+    if (node == '') {
+      if (!sourcePlaced) {
+        tempGrid[row][col] = 'S';
+        setSourcePlaced(true);
+      } else if (!targetPlaced) {
+        tempGrid[row][col] = 'T';
+        setTargetPlaced(true);
+      } else {
+        tempGrid[row][col] = 'O';
+      }
+    }
+    setGrid(tempGrid);
   };
 
-  const handleMouseEnter = (node, row, col) => {};
+  const handleMouseEnter = (node, row, col) => {
+    if (!mouseDown) return;
+  };
 
   return (
     <UserContext.Provider

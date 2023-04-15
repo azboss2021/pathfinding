@@ -10,13 +10,13 @@ const Node = ({
 
   switch (col) {
     case 'O':
-      classes = 'w-10 h-10 border-gray-200 border-2 bg-gray-500';
+      classes = 'w-10 h-10 node border-gray-200 border-2 bg-gray-500';
       break;
     case 'S':
-      classes = 'w-10 h-10 border-gray-200 border-2 bg-green-500';
+      classes = 'w-10 h-10 node border-gray-200 border-2 bg-green-500';
       break;
     case 'T':
-      classes = 'w-10 h-10 border-gray-200 border-2 bg-red-500';
+      classes = 'w-10 h-10 node border-gray-200 border-2 bg-red-500';
       break;
     default:
       classes = 'w-10 h-10 border-gray-200 border-2 bg-white';
