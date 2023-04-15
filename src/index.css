@@ -7,20 +7,3 @@
   margin: 0;
   padding: 0;
 }
-
-.node {
-  transition: all 0.05s ease-in-out;
-}
-
-.node:hover {
-  transform: scale(1.05);
-  outline: 1px solid black;
-}
-
-.control-button {
-  transition: all 0.1s ease-in-out;
-}
-
-.control-button:hover {
-  transform: scale(1.05);
-}

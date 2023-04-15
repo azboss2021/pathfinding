@@ -1,77 +1,47 @@
-import { useEffect, useState } from 'react';
+import { createContext, useState } from 'react';
+import { useEffect } from 'react';
 import Grid from './components/Grid';
-import Controls from './components/Controls';
 
-const ROWS = 35;
-const COLS = 50;
+const ROWS = 20;
+const COLS = 30;
+
+export const UserContext = createContext();
 
 function App() {
   const [grid, setGrid] = useState([]);
-  const [sourcePlaced, setSourcePlaced] = useState(false);
-  const [targetPlaced, setTargetPlaced] = useState(false);
-  const [algorithm, setAlgorithm] = useState('A*');
+  const [mouseDown, setMouseDown] = useState(false);
 
   useEffect(() => {
-    setupGrid();
+    resetGrid();
   }, []);
 
-  const aStar = () => {};
-
-  const handlePlay = () => {
-    switch (algorithm) {
-      case 'A*':
-        aStar();
-    }
-  };
-
-  const handleClear = () => {
-    setupGrid();
-  };
-
-  const handleMouseOverNode = (e, row, col, nodeContent) => {
-    let tempGrid = grid.slice().slice();
-    if (!nodeContent) {
-      if (!sourcePlaced) {
-        console.log('Row: ' + row + ' Col: ' + col);
-        tempGrid[row][col] = 'S';
-        setSourcePlaced(true);
-      } else if (!targetPlaced) {
-        tempGrid[row][col] = 'T';
-        setTargetPlaced(true);
-      } else {
-        tempGrid[row][col] = 'O';
-      }
-    } else {
-      if (nodeContent == 'S') setSourcePlaced(false);
-      if (nodeContent == 'T') setTargetPlaced(false);
-      tempGrid[row][col] = '';
-    }
-    setGrid(tempGrid.slice().slice());
-  };
-
-  const setupGrid = () => {
-    let tempGrid = new Array(ROWS);
-    for (let i = 0; i < tempGrid.length; i++) {
-      tempGrid[i] = new Array(COLS);
-    }
-
+  const resetGrid = () => {
+    const tempGrid = [];
     for (let i = 0; i < ROWS; i++) {
+      const row = [];
       for (let j = 0; j < COLS; j++) {
-        tempGrid[i][j] = '';
+        row.push(['']);
       }
+      tempGrid.push(row);
     }
-
-    setSourcePlaced(false);
-    setTargetPlaced(false);
-
-    setGrid(tempGrid.slice().slice());
+    setGrid(tempGrid);
   };
+
+  const handleMouseDown = (node, row, col) => {
+    setMouseDown(true);
+    console.log('Handle mouse down');
+  };
+
+  const handleMouseEnter = (node, row, col) => {};
 
   return (
-    <main>
-      <Controls handlePlay={handlePlay} handleClear={handleClear} />
-      <Grid grid={grid} handleMouseOverNode={handleMouseOverNode} />
-    </main>
+    <UserContext.Provider
+      value={[grid, handleMouseDown, handleMouseEnter, setMouseDown]}
+    >
+      <main>
+        <Grid />
+      </main>
+    </UserContext.Provider>
   );
 }
 

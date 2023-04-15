@@ -1,57 +1,30 @@
-import React from 'react';
+import { useContext } from 'react';
+import { UserContext } from '../App';
+import Node from './Node';
 
-const Grid = ({ grid, handleMouseOverNode }) => {
-  const gridMap = grid.map((row, rowIndex) => {
-    return (
-      <div key={rowIndex} className="flex">
-        {row.map((node, nodeIndex) => {
-          if (node == 'O') {
-            return (
-              <div
-                key={nodeIndex}
-                className="flex-1 aspect-square border border-gray-100 bg-black node"
-                onClick={(e) =>
-                  handleMouseOverNode(e, rowIndex, nodeIndex, node)
-                }
-              ></div>
-            );
-          } else if (node == 'S') {
-            return (
-              <div
-                key={nodeIndex}
-                className="flex-1 aspect-square border border-gray-100 bg-green-500 node"
-                onClick={(e) =>
-                  handleMouseOverNode(e, rowIndex, nodeIndex, node)
-                }
-              ></div>
-            );
-          } else if (node == 'T') {
-            return (
-              <div
-                key={nodeIndex}
-                className="flex-1 aspect-square border border-gray-100 bg-red-500 node"
-                onClick={(e) =>
-                  handleMouseOverNode(e, rowIndex, nodeIndex, node)
-                }
-              ></div>
-            );
-          } else {
-            return (
-              <div
-                key={nodeIndex}
-                className="flex-1 aspect-square border border-gray-100 bg-white node"
-                onClick={(e) =>
-                  handleMouseOverNode(e, rowIndex, nodeIndex, node)
-                }
-              ></div>
-            );
-          }
-        })}
-      </div>
-    );
-  });
+const Grid = () => {
+  const [grid, handleMouseDown, handleMouseEnter, setMouseDown] =
+    useContext(UserContext);
 
-  return <section>{gridMap}</section>;
+  return (
+    <section>
+      {grid.map((row, rowIndex) => (
+        <div key={rowIndex} className="flex">
+          {row.map((col, colIndex) => (
+            <Node
+              key={colIndex}
+              col={col}
+              rowIndex={rowIndex}
+              colIndex={colIndex}
+              handleMouseDown={handleMouseDown}
+              handleMouseEnter={handleMouseEnter}
+              setMouseDown={setMouseDown}
+            />
+          ))}
+        </div>
+      ))}
+    </section>
+  );
 };
 
 export default Grid;
