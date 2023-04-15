@@ -1,12 +1,8 @@
-import { useContext } from 'react';
-import { UserContext } from '../App';
 import Node from './Node';
 
-const Grid = () => {
-  const [grid, handleMouseDown, handleMouseEnter] = useContext(UserContext);
-
+const Grid = ({ grid, handleMouseDown, handleMouseEnter, setMouseDown }) => {
   return (
-    <section>
+    <section className="flex flex-col max-w-screen-xl mx-auto">
       {grid.map((row, rowIndex) => (
         <div key={rowIndex} className="flex">
           {row.map((col, colIndex) => (
@@ -17,6 +13,7 @@ const Grid = () => {
               colIndex={colIndex}
               handleMouseDown={handleMouseDown}
               handleMouseEnter={handleMouseEnter}
+              setMouseDown={setMouseDown}
             />
           ))}
         </div>
