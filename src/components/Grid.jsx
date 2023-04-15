@@ -3,8 +3,7 @@ import { UserContext } from '../App';
 import Node from './Node';
 
 const Grid = () => {
-  const [grid, handleMouseDown, handleMouseEnter, setMouseDown] =
-    useContext(UserContext);
+  const [grid, handleMouseDown, handleMouseEnter] = useContext(UserContext);
 
   return (
     <section>
@@ -18,7 +17,6 @@ const Grid = () => {
               colIndex={colIndex}
               handleMouseDown={handleMouseDown}
               handleMouseEnter={handleMouseEnter}
-              setMouseDown={setMouseDown}
             />
           ))}
         </div>

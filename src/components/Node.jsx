@@ -4,22 +4,21 @@ const Node = ({
   colIndex,
   handleMouseDown,
   handleMouseEnter,
-  setMouseDown,
 }) => {
   let classes;
 
   switch (col) {
     case 'O':
-      classes = 'w-10 h-10 node border-gray-200 border-2 bg-gray-500';
+      classes = 'w-10 h-10 node border-gray-500 border bg-gray-400';
       break;
     case 'S':
-      classes = 'w-10 h-10 node border-gray-200 border-2 bg-green-500';
+      classes = 'w-10 h-10 node border-gray-500 border bg-green-500';
       break;
     case 'T':
-      classes = 'w-10 h-10 node border-gray-200 border-2 bg-red-500';
+      classes = 'w-10 h-10 node border-gray-500 border bg-red-500';
       break;
     default:
-      classes = 'w-10 h-10 border-gray-200 border-2 bg-white';
+      classes = 'w-10 h-10 empty-node border-gray-500 border bg-white';
       break;
   }
 
@@ -28,7 +27,6 @@ const Node = ({
       className={classes}
       onDragStart={(e) => e.preventDefault()}
       onMouseDown={() => handleMouseDown(col, rowIndex, colIndex)}
-      onMouseUp={() => setMouseDown(false)}
       onMouseEnter={() => handleMouseEnter(col, rowIndex, colIndex)}
     ></div>
   );
