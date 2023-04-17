@@ -2,7 +2,7 @@ import Node from './Node';
 
 const Grid = ({ grid, handleMouseDown, handleMouseEnter, setMouseDown }) => {
   return (
-    <section className="flex flex-col max-w-screen-xl mx-auto">
+    <section className="flex flex-col max-w-screen-xl mx-auto border-2 border-slate-300">
       {grid.map((row, rowIndex) => (
         <div key={rowIndex} className="flex">
           {row.map((col, colIndex) => (
