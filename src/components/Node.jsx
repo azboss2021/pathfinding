@@ -52,7 +52,7 @@ const Node = ({
         'flex-1 aspect-square node border-slate-100 border bg-orange-200';
       break;
     case 'P':
-      classes = 'flex-1 aspect-square path border-blue-600 border bg-blue-600';
+      classes = 'flex-1 aspect-square path border-slate-100 border bg-blue-600';
       // node = (
       //   <div
       //     className="flex-1 aspect-square path border-purple-200 border bg-purple-200"
