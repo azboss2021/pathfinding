@@ -16,8 +16,8 @@ This project was built for personal curiosity, because I am learning sorting alg
 
 ## Screenshot Preview
 
-![screenshot](./pathfinding1.png?raw=true)
-![screenshot](./pathfinding2.png?raw=true)
+![screenshot](./pathfinding1.jpg?raw=true)
+![screenshot](./pathfinding2.jpg?raw=true)
 
 ## What could be improved
 
