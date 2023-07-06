@@ -1,8 +1,8 @@
 # Pathfinding
 
-## A basic pathfinding app that visualizes a node to node path.
+## A basic pathfinding app that visualizes a node-to-node path.
 
-This project is not complete, but (currently) simulates the A* pathfinding algorithm I learned recently on a rectangular grid.
+This project is not complete, but (currently) simulates the A* pathfinding algorithm I recently learned on a rectangular grid.
 
 ➡️ [LIVE DEMO](https://azboss2021.github.io/pathfinding/)
 
