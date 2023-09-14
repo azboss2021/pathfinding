@@ -19,16 +19,7 @@ const Controls = ({ aStar, resetGrid, randomizeObstacles }) => {
         className="bg-blue-500 py-2 px-4 text-white rounded-md hover:bg-blue-600 font-bold"
         onClick={aStar}
       >
-        A*
-      </button>
-      <button className="bg-blue-200 py-2 px-4 text-white rounded-md font-bold">
-        Dijkstra
-      </button>
-      <button className="bg-blue-200 py-2 px-4 text-white rounded-md font-bold">
-        Floyd-Warshall
-      </button>
-      <button className="bg-blue-200 py-2 px-4 text-white rounded-md font-bold">
-        Bellman-Ford
+        A* ▶
       </button>
     </section>
   );
