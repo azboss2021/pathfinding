@@ -1,6 +1,6 @@
 # Pathfinding
 
-## A basic pathfinding app that visualizes the shorted node-to-node path.
+## A basic pathfinding app that visualizes the shortest node-to-node path.
 
 This project is not complete, but (currently) simulates the A* pathfinding algorithm I recently learned on a rectangular grid.
 
